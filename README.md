@@ -1,4 +1,4 @@
-# dati
+# vue-swiper
 
 > A Vue.js project
 
