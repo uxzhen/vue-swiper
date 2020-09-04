@@ -52,13 +52,13 @@ export default {
             t2: "",
             t3: "",
             boxStyle: {
-                transitionDuration: "1s",
+                transitionDuration: "0s",
                 transform: "translate(0,0)",
             },
         };
     },
     created() {
-        // this.runInv();
+        this.runInv();
     },
     mounted() {
         let img = document.querySelector(".imgs_c");
@@ -67,6 +67,7 @@ export default {
     },
     methods: {
         a(e) {
+            this.boxStyle.transitionDuration = "0s";
             console.log(e.changedTouches[0].pageX);
             this.t1 = e.changedTouches[0].pageX;
             // console.log(e.changedTouches[0].screenY);
@@ -93,28 +94,41 @@ export default {
             }
             this.go();
         },
-        go() {
-            console.log(this.t1, this.t2);
+        go(val) {
+            this.boxStyle.transitionDuration = ".5s";
+            // console.log(this.t1 - this.t2);
             this.boxStyle.transform = `translate(${
                 this.currentIndex * -7.02 + "rem"
             },0)`;
+            this.runInv();
         },
         c(e) {
+            this.boxStyle.transitionDuration = "0s";
+            clearInterval(this.timer);
             // console.log(e.changedTouches[0].pageX);
+            this.t2 = e.changedTouches[0].pageX;
+            this.boxStyle.transform = `translate(${
+                (this.t2 - this.t1) / 100 + this.currentIndex * -7.02 + "rem"
+            },0)`;
         },
+        d(e) {},
         e(e) {
             console.log(e);
         },
         gotoPage(index) {
             this.currentIndex = index;
+            this.boxStyle.transitionDuration = ".5s";
+            // console.log(this.t1 - this.t2);
+            this.boxStyle.transform = `translate(${
+                this.currentIndex * -7.02 + "rem"
+            },0)`;
+            // this.go();
         },
         //定时器
         runInv() {
             // clearInterval(this.timer)
             this.timer = setInterval(() => {
                 this.gotoPage(this.nextIndex);
-                let img = document.querySelector(".imgs_c");
-                img.style.left = (this.nextIndex - 1) * 7.02 + "rem";
             }, 2500);
         },
         // 鼠标移入

@@ -1,0 +1,85 @@
+/* 
+通用scss
+m为margin
+f为flex
+b为背景
+c为颜色
+fz为字体大小
+p为padding
+*/
+// min-height: calc(100vh - 0.75rem - 0.98rem);
+.m0 {
+	margin: 0 auto;
+}
+
+.h100 {
+	height: 100vh;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex1 {
+	flex: 1;
+}
+
+.fd {
+	flex-direction: column;
+}
+
+.f0 {
+	align-items: center;
+}
+
+.f1 {
+	justify-content: center;
+}
+
+.f2 {
+	justify-content: space-around;
+}
+
+.f3 {
+	justify-content: space-between;
+}
+
+.tc {
+	text-align: center;
+}
+
+.fz18 {
+	font-size: .18rem;
+}
+
+.fz24 {
+	font-size: .24rem;
+}
+
+.fz28 {
+	font-size: .28rem;
+}
+
+.fz30 {
+	font-size: .3rem;
+}
+
+.bt {
+	&:active {
+		position: relative;
+		opacity : 0.8;
+		bottom  : -1px;
+	}
+
+	-webkit-touch-callout: none;
+	/* iOS Safari */
+	-webkit-user-select  : none;
+	/* Chrome/Safari/Opera */
+	-khtml-user-select   : none;
+	/* Konqueror */
+	-moz-user-select     : none;
+	/* Firefox */
+	-ms-user-select      : none;
+	/* Internet Explorer/Edge */
+	user-select          : none;
+}
